@@ -1227,10 +1227,22 @@
     /* TEMPLATES */
     /* ===================== */
     .template-preview {
-      border: 1px dashed var(--ds-color-border);
-      border-radius: var(--ds-radius-lg);
+      border: 2px dashed var(--ds-color-border);
+      border-radius: 8px 4px 8px 4px;
       padding: var(--ds-space-6);
       background: var(--ds-color-bg-surface);
+      transition:
+        border-radius 0.5s var(--ds-ease-spring),
+        border-color 0.4s var(--ds-ease-smooth),
+        box-shadow 0.4s var(--ds-ease-smooth);
+    }
+
+    .template-preview:hover {
+      border-radius: 4px 12px 4px 12px;
+      border-color: var(--ds-color-primary);
+      box-shadow:
+        4px 4px 0 rgba(6, 182, 212, 0.1),
+        8px 8px 0 rgba(139, 92, 246, 0.05);
     }
 
     .template-title {
@@ -1761,11 +1773,100 @@
       </div>
     </section>
 
-    <!-- 04 REFERENCE -->
+    <!-- 04 TEMPLATES: LAYOUT STRUCTURES -->
+    <section class="section" id="templates">
+      <div class="section-header">
+        <div>
+          <div class="section-label">04 Templates</div>
+          <h2 class="section-title">Layout Structures</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <!-- Hero + Content Layout -->
+        <div class="template-preview">
+          <h3 class="template-title">Hero + Content</h3>
+          <div class="template-block" style="height: 80px; display: flex; align-items: center; justify-content: center;">
+            HERO SECTION
+          </div>
+          <div class="template-block" style="height: 40px; display: flex; align-items: center; justify-content: center;">
+            CONTENT BLOCK
+          </div>
+          <div class="template-block" style="height: 40px; display: flex; align-items: center; justify-content: center;">
+            CONTENT BLOCK
+          </div>
+        </div>
+
+        <!-- Sidebar + Main Layout -->
+        <div class="template-preview">
+          <h3 class="template-title">Sidebar + Main</h3>
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--ds-space-3);">
+            <div class="template-block" style="height: 160px; display: flex; align-items: center; justify-content: center;">
+              SIDEBAR
+            </div>
+            <div style="display: flex; flex-direction: column; gap: var(--ds-space-3);">
+              <div class="template-block" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                MAIN CONTENT
+              </div>
+              <div class="template-block" style="height: 40px; display: flex; align-items: center; justify-content: center;">
+                FOOTER
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Grid Layout -->
+        <div class="template-preview">
+          <h3 class="template-title">Dashboard Grid</h3>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--ds-space-3);">
+            <div class="template-block" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+              METRIC
+            </div>
+            <div class="template-block" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+              METRIC
+            </div>
+            <div class="template-block" style="grid-column: span 2; height: 60px; display: flex; align-items: center; justify-content: center;">
+              CHART / VISUALIZATION
+            </div>
+          </div>
+        </div>
+
+        <!-- Split Layout -->
+        <div class="template-preview">
+          <h3 class="template-title">Split Layout</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-space-3);">
+            <div class="template-block" style="height: 120px; display: flex; align-items: center; justify-content: center;">
+              LEFT PANEL
+            </div>
+            <div class="template-block" style="height: 120px; display: flex; align-items: center; justify-content: center;">
+              RIGHT PANEL
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-width Card Grid -->
+      <div class="template-preview" style="margin-top: var(--ds-space-6);">
+        <h3 class="template-title">Card Grid Layout</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-3);">
+          <div class="template-block" style="height: 80px; display: flex; align-items: center; justify-content: center;">
+            CARD
+          </div>
+          <div class="template-block" style="height: 80px; display: flex; align-items: center; justify-content: center;">
+            CARD
+          </div>
+          <div class="template-block" style="height: 80px; display: flex; align-items: center; justify-content: center;">
+            CARD
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 REFERENCE -->
     <section class="section" id="code">
       <div class="section-header">
         <div>
-          <div class="section-label">04 Reference</div>
+          <div class="section-label">05 Reference</div>
           <h2 class="section-title">Token Export</h2>
         </div>
       </div>
