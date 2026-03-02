@@ -8,32 +8,32 @@ const audiences = [
 
 export default function WhoItsFor() {
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-xs text-gray-400 uppercase tracking-widest mb-4" style={{fontFamily: 'monospace'}}>
+    <section style={{ padding: '6rem 1.5rem', background: 'var(--color-base)' }}>
+      <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-text-tertiary)', marginBottom: '1rem' }}>
           WHO IT&apos;S FOR
         </div>
-        <h2 className="text-5xl font-black mb-4" style={{fontFamily: 'system-ui, sans-serif'}}>
+        <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: '0.75rem', color: 'var(--color-text-primary)' }}>
           Sound familiar?
         </h2>
-        <p className="text-gray-500 mb-16 max-w-xl" style={{fontFamily: 'monospace'}}>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', color: 'var(--color-text-tertiary)', marginBottom: '3.5rem', maxWidth: '480px' }}>
           If you run a small business and feel like AI is passing you by — this is for you.
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem' }}>
           {audiences.map((a) => (
-            <div key={a.type} className="border-2 border-black p-6 hover:bg-black hover:text-white group transition-all duration-200 cursor-default">
-              <div className="text-xs uppercase tracking-widest mb-3 group-hover:text-[#FF71CE]" style={{fontFamily: 'monospace', color: '#FF71CE'}}>
+            <div key={a.type} className="wireframe-card">
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-energy-primary)', marginBottom: '0.75rem' }}>
                 {a.type}
               </div>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300 leading-relaxed" style={{fontFamily: 'monospace'}}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--color-text-secondary)' }}>
                 {a.pain}
               </p>
             </div>
           ))}
-          <div className="border-2 border-dashed border-gray-300 p-6 flex items-center justify-center">
-            <p className="text-sm text-gray-400 text-center" style={{fontFamily: 'monospace'}}>
+          <div style={{ border: '2px dashed var(--color-wireframe-subtle)', padding: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--color-text-tertiary)', textAlign: 'center' }}>
               Don&apos;t see your business?<br />
-              <a href="mailto:wallymollc@gmail.com" className="text-black underline">Let&apos;s talk anyway →</a>
+              <a href="mailto:wallymollc@gmail.com" style={{ color: 'var(--color-text-primary)', textDecoration: 'underline' }}>Let&apos;s talk anyway →</a>
             </p>
           </div>
         </div>

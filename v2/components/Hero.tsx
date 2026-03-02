@@ -1,42 +1,71 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-24 pb-16 relative">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 border border-black px-3 py-1 text-xs mb-8 uppercase tracking-widest" style={{fontFamily: 'monospace'}}>
-          <span className="w-2 h-2 rounded-full inline-block" style={{background: '#FF71CE'}} />
-          AI Implementation · Apex & RTP
+    <section className="relative overflow-hidden" style={{ paddingTop: 'calc(var(--grid-baseline) * 20)', paddingBottom: 'calc(var(--grid-baseline) * 12)', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
+      <div className="relative max-w-5xl mx-auto text-center">
+
+        <div className="inline-flex items-center gap-2 mb-10" style={{
+          border: '1px solid var(--color-wireframe)',
+          padding: '6px 14px',
+          fontFamily: 'var(--font-mono)',
+          fontSize: '10px',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: 'var(--color-text-secondary)',
+        }}>
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--color-energy-primary)', display: 'inline-block' }} />
+          AI Implementation · Apex &amp; RTP
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-black tracking-tight text-black leading-none mb-6" style={{fontFamily: 'system-ui, sans-serif'}}>
+        <h1 style={{
+          fontFamily: 'var(--font-sans)',
+          fontSize: 'clamp(3rem, 10vw, 7rem)',
+          fontWeight: 900,
+          lineHeight: 0.95,
+          letterSpacing: '-0.03em',
+          color: 'var(--color-text-primary)',
+          marginBottom: '1.5rem',
+        }}>
           Your Business.<br />
-          <span style={{color: '#FF71CE'}}>AI-Ready.</span><br />
+          <span style={{ color: 'var(--color-energy-primary)' }}>AI-Ready.</span><br />
           No BS.
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed" style={{fontFamily: 'monospace'}}>
+        <p style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '1rem',
+          lineHeight: 1.7,
+          color: 'var(--color-text-secondary)',
+          maxWidth: '560px',
+          margin: '0 auto 2.5rem',
+        }}>
           I come to your business, learn how you actually work,
           and hand you a clear AI roadmap — tools you&apos;ll own,
           knowledge you&apos;ll keep, results you&apos;ll see.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="mailto:wallymollc@gmail.com"
-            className="px-8 py-4 text-sm uppercase tracking-widest border-2 border-black bg-black text-white transition-all duration-200 hover:opacity-80"
-            style={{fontFamily: 'monospace', fontWeight: 700}}
-          >
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+          <a href="mailto:wallymollc@gmail.com" className="wireframe-btn" style={{ padding: '14px 32px', fontSize: '12px' }}>
             Book Your Free 30-Min Call →
           </a>
-          <a
-            href="#how-it-works"
-            className="text-sm underline underline-offset-4 text-gray-500 hover:text-black transition-colors"
-            style={{fontFamily: 'monospace'}}
-          >
+          <a href="#how-it-works" style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '12px',
+            color: 'var(--color-text-tertiary)',
+            textDecoration: 'underline',
+            textUnderlineOffset: '4px',
+          }}>
             See how it works
           </a>
         </div>
 
-        <p className="mt-10 text-xs text-gray-400 tracking-widest uppercase" style={{fontFamily: 'monospace'}}>
+        <p style={{
+          marginTop: '3rem',
+          fontFamily: 'var(--font-mono)',
+          fontSize: '10px',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: 'var(--color-text-tertiary)',
+        }}>
           Serving Downtown Apex · RTP Corridor · No agency overhead
         </p>
       </div>

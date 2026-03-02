@@ -1,26 +1,28 @@
 export default function BookConsult() {
   return (
-    <section className="py-24 px-6" style={{background: '#0a0a0a', color: 'white'}}>
-      <div className="max-w-3xl mx-auto text-center">
-        <div className="text-xs text-gray-500 uppercase tracking-widest mb-4" style={{fontFamily: 'monospace'}}>
+    <section style={{ background: 'var(--color-wireframe)', color: 'var(--color-base)', padding: '6rem 1.5rem', textAlign: 'center' }}>
+      <div style={{ maxWidth: '640px', margin: '0 auto' }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#666', marginBottom: '1rem' }}>
           GET STARTED
         </div>
-        <h2 className="text-5xl font-black mb-6" style={{fontFamily: 'system-ui, sans-serif'}}>
+        <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '1.5rem' }}>
           Not sure if AI is right<br />for your business?
         </h2>
-        <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed" style={{fontFamily: 'monospace'}}>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', lineHeight: 1.7, color: '#9ca3af', marginBottom: '2.5rem', maxWidth: '480px', margin: '0 auto 2.5rem' }}>
           That&apos;s exactly what the free 30-minute call is for.
           No pitch. No pressure. Just an honest conversation about
           whether I can help and what that would look like.
         </p>
-        <a
-          href="mailto:wallymollc@gmail.com"
-          className="inline-block px-10 py-5 text-sm uppercase tracking-widest border-2 transition-all duration-200 hover:opacity-80"
-          style={{fontFamily: 'monospace', fontWeight: 700, borderColor: '#FF71CE', color: '#FF71CE'}}
-        >
+        <a href="mailto:wallymollc@gmail.com" className="wireframe-btn" style={{
+          borderColor: 'var(--color-energy-primary)',
+          color: 'var(--color-energy-primary)',
+          background: 'transparent',
+          padding: '16px 40px',
+          fontSize: '12px',
+        }}>
           Book Your Free Call →
         </a>
-        <p className="mt-6 text-xs text-gray-600" style={{fontFamily: 'monospace'}}>
+        <p style={{ marginTop: '1.5rem', fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#555' }}>
           wallymollc@gmail.com · Downtown Apex, NC
         </p>
       </div>
