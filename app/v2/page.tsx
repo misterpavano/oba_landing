@@ -1,9 +1,9 @@
-import Hero from "./components/Hero";
-import HowItWorks from "./components/HowItWorks";
-import WhoItsFor from "./components/WhoItsFor";
-import Pricing from "./components/Pricing";
-import Testimonials from "./components/Testimonials";
-import BookConsult from "./components/BookConsult";
+import Hero from "@/v2/components/Hero";
+import HowItWorks from "@/v2/components/HowItWorks";
+import WhoItsFor from "@/v2/components/WhoItsFor";
+import Pricing from "@/v2/components/Pricing";
+import Testimonials from "@/v2/components/Testimonials";
+import BookConsult from "@/v2/components/BookConsult";
 
 export default function V2Page() {
   return (
