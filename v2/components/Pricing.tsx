@@ -3,7 +3,7 @@ const tiers = [
     name: "Discovery Workshop",
     price: "$299",
     freq: "one-time",
-    desc: "Not sure where to start? We spend 2 hours together, map your workflow, and I leave you with 3 concrete AI quick wins written up in plain English.",
+    desc: "2 hours together. I map your workflow and leave you with 3 concrete AI quick wins written up in plain English. Perfect if you're not sure where to start.",
     cta: "Book a Workshop",
     highlight: false,
   },
@@ -11,7 +11,7 @@ const tiers = [
     name: "AI Roadmap Package",
     price: "$799",
     freq: "one-time",
-    desc: "Full audit + a prioritized roadmap with tool recommendations, setup guides, and a 60-min walkthrough session. Everything you need to start executing.",
+    desc: "Full audit + a prioritized roadmap with tool recommendations, setup guides, and a 60-min walkthrough. Everything you need to start executing.",
     cta: "Get Your Roadmap",
     highlight: true,
   },
@@ -19,7 +19,7 @@ const tiers = [
     name: "Monthly AI Partner",
     price: "$199",
     freq: "/mo",
-    desc: "I stay in your corner. Monthly check-in call, access to me via message, and I keep your AI stack updated as tools evolve. Cancel anytime.",
+    desc: "Monthly check-in call, access to me via message, and I keep your AI stack current as tools evolve. Cancel anytime.",
     cta: "Start Partnership",
     highlight: false,
   },
@@ -27,49 +27,51 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section className="py-24 px-6 bg-gray-50">
+    <section className="py-24 px-6" style={{background: '#f5f5f5'}}>
       <div className="max-w-5xl mx-auto">
-        <div className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-4">
-          PRICING / TIERS_01
+        <div className="text-xs text-gray-400 uppercase tracking-widest mb-4" style={{fontFamily: 'monospace'}}>
+          PRICING
         </div>
-        <h2 className="font-display text-4xl md:text-5xl font-black mb-4">
+        <h2 className="text-5xl font-black mb-4" style={{fontFamily: 'system-ui, sans-serif'}}>
           Straightforward pricing.
         </h2>
-        <p className="font-mono text-gray-500 mb-16 max-w-xl">
-          No retainers you didn&apos;t ask for. No surprise invoices. Start wherever makes sense.
+        <p className="text-gray-500 mb-16 max-w-xl" style={{fontFamily: 'monospace'}}>
+          No retainers you didn&apos;t ask for. Start wherever makes sense.
         </p>
         <div className="grid md:grid-cols-3 gap-6">
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`p-8 border-2 flex flex-col ${
-                tier.highlight
-                  ? "border-black bg-black text-white"
-                  : "border-black bg-white"
-              }`}
+              className="p-8 border-2 flex flex-col"
+              style={{
+                borderColor: 'black',
+                background: tier.highlight ? '#0a0a0a' : 'white',
+                color: tier.highlight ? 'white' : 'black',
+              }}
             >
               {tier.highlight && (
-                <div className="font-mono text-xs text-[#FF71CE] uppercase tracking-widest mb-4">
+                <div className="text-xs uppercase tracking-widest mb-4" style={{fontFamily: 'monospace', color: '#FF71CE'}}>
                   ★ Most Popular
                 </div>
               )}
-              <div className="font-mono text-xs uppercase tracking-widest text-gray-400 mb-2">
+              <div className="text-xs uppercase tracking-widest text-gray-400 mb-2" style={{fontFamily: 'monospace'}}>
                 {tier.name}
               </div>
-              <div className="font-display text-4xl font-black mb-1">
+              <div className="text-4xl font-black mb-1" style={{fontFamily: 'system-ui, sans-serif'}}>
                 {tier.price}
-                <span className="text-lg font-mono font-normal text-gray-400">{tier.freq}</span>
+                <span className="text-lg font-normal text-gray-400" style={{fontFamily: 'monospace'}}>{tier.freq}</span>
               </div>
-              <p className={`font-mono text-sm leading-relaxed mt-4 mb-8 flex-1 ${tier.highlight ? "text-gray-300" : "text-gray-600"}`}>
+              <p className="text-sm leading-relaxed mt-4 mb-8 flex-1" style={{fontFamily: 'monospace', color: tier.highlight ? '#9ca3af' : '#4b5563'}}>
                 {tier.desc}
               </p>
               <a
                 href="mailto:wallymollc@gmail.com"
-                className={`font-mono text-sm font-bold uppercase tracking-widest px-6 py-3 text-center border-2 transition-all duration-200 ${
-                  tier.highlight
-                    ? "border-[#FF71CE] text-[#FF71CE] hover:bg-[#FF71CE] hover:text-black"
-                    : "border-black text-black hover:bg-black hover:text-white"
-                }`}
+                className="text-sm font-bold uppercase tracking-widest px-6 py-3 text-center border-2 transition-all duration-200 hover:opacity-80"
+                style={{
+                  fontFamily: 'monospace',
+                  borderColor: tier.highlight ? '#FF71CE' : 'black',
+                  color: tier.highlight ? '#FF71CE' : 'black',
+                }}
               >
                 {tier.cta} →
               </a>

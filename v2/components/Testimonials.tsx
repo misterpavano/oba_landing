@@ -17,19 +17,19 @@ export default function Testimonials() {
   return (
     <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-4">
-          SOCIAL PROOF / TESTIMONIALS_01
+        <div className="text-xs text-gray-400 uppercase tracking-widest mb-4" style={{fontFamily: 'monospace'}}>
+          TESTIMONIALS
         </div>
-        <h2 className="font-display text-4xl font-black mb-16">
+        <h2 className="text-4xl font-black mb-16" style={{fontFamily: 'system-ui, sans-serif'}}>
           What clients say.
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {placeholders.map((t, i) => (
             <div key={i} className="border border-gray-200 p-8 relative">
-              <div className="font-mono text-5xl text-[#FF71CE] leading-none mb-4">&ldquo;</div>
-              <p className="font-mono text-sm text-gray-700 leading-relaxed mb-6">{t.quote}</p>
-              <div className="font-mono text-xs text-gray-400 uppercase tracking-widest">{t.name}</div>
-              <div className="absolute top-4 right-4 font-mono text-xs text-gray-200">PLACEHOLDER</div>
+              <div className="text-5xl leading-none mb-4" style={{color: '#FF71CE', fontFamily: 'serif'}}>&ldquo;</div>
+              <p className="text-sm text-gray-700 leading-relaxed mb-6" style={{fontFamily: 'monospace'}}>{t.quote}</p>
+              <div className="text-xs text-gray-400 uppercase tracking-widest" style={{fontFamily: 'monospace'}}>{t.name}</div>
+              <div className="absolute top-3 right-3 text-xs text-gray-200 border border-gray-100 px-2 py-1" style={{fontFamily: 'monospace'}}>PLACEHOLDER</div>
             </div>
           ))}
         </div>

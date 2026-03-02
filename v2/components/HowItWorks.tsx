@@ -21,23 +21,23 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-black text-white">
+    <section id="how-it-works" className="py-24 px-6" style={{background: '#0a0a0a', color: 'white'}}>
       <div className="max-w-5xl mx-auto">
-        <div className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-4">
-          PROCESS / HOW_IT_WORKS_01
+        <div className="text-xs text-gray-500 uppercase tracking-widest mb-4" style={{fontFamily: 'monospace'}}>
+          HOW IT WORKS
         </div>
-        <h2 className="font-display text-4xl md:text-5xl font-black mb-16">
+        <h2 className="text-5xl font-black mb-16" style={{fontFamily: 'system-ui, sans-serif'}}>
           Three steps.<br />
-          <span className="text-[#FF71CE]">Zero fluff.</span>
+          <span style={{color: '#FF71CE'}}>Zero fluff.</span>
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div key={step.num} className="border border-gray-800 p-8 hover:border-gray-500 transition-colors">
-              <div className="font-mono text-5xl font-black mb-6" style={{ color: step.accent }}>
+              <div className="text-5xl font-black mb-6" style={{color: step.accent, fontFamily: 'monospace'}}>
                 {step.num}
               </div>
-              <h3 className="font-display text-xl font-bold mb-4">{step.title}</h3>
-              <p className="font-mono text-sm text-gray-400 leading-relaxed">{step.desc}</p>
+              <h3 className="text-xl font-bold mb-4" style={{fontFamily: 'system-ui, sans-serif'}}>{step.title}</h3>
+              <p className="text-sm text-gray-400 leading-relaxed" style={{fontFamily: 'monospace'}}>{step.desc}</p>
             </div>
           ))}
         </div>
