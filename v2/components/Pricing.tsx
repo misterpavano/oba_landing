@@ -19,13 +19,10 @@ export default function Pricing() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
           {tiers.map((tier) => (
-            <div key={tier.name} className="wireframe-card" style={{
-              background: tier.highlight ? 'var(--color-wireframe)' : 'var(--color-base)',
-              color: tier.highlight ? 'var(--color-base)' : 'var(--color-text-primary)',
-              display: 'flex', flexDirection: 'column',
-            }}>
+            <div key={tier.name} className="wireframe-card" style={{ background: tier.highlight ? 'var(--color-wireframe)' : 'var(--color-base)', color: tier.highlight ? 'var(--color-base)' : 'var(--color-text-primary)', display: 'flex', flexDirection: 'column' }}>
               {tier.highlight && (
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-energy-primary)', marginBottom: '1rem' }}>
+                /* Badge → purple so it doesn't double up with the pink CTA button below */
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-energy-accent)', marginBottom: '1rem' }}>
                   ★ Most Popular
                 </div>
               )}
@@ -36,13 +33,8 @@ export default function Pricing() {
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', lineHeight: 1.7, color: tier.highlight ? '#9ca3af' : 'var(--color-text-secondary)', margin: '1rem 0 2rem', flex: 1 }}>
                 {tier.desc}
               </p>
-              <a href="mailto:wallymollc@gmail.com" className="wireframe-btn" style={{
-                borderColor: tier.highlight ? 'var(--color-energy-primary)' : 'var(--color-wireframe)',
-                color: tier.highlight ? 'var(--color-energy-primary)' : 'var(--color-wireframe)',
-                background: 'transparent',
-                textAlign: 'center',
-                fontSize: '11px',
-              }}>
+              {/* CTA → stays pink, this is the conversion action */}
+              <a href="mailto:wallymollc@gmail.com" className="wireframe-btn" style={{ borderColor: 'var(--color-energy-primary)', color: 'var(--color-energy-primary)', background: 'transparent', textAlign: 'center', fontSize: '11px' }}>
                 {tier.cta} →
               </a>
             </div>

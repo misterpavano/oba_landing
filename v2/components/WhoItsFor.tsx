@@ -22,10 +22,11 @@ export default function WhoItsFor() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem' }}>
           {audiences.map((a) => (
             <div key={a.type} className="wireframe-card">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-energy-primary)', marginBottom: '0.75rem' }}>
+              {/* Labels → purple (categorical/tertiary, not a CTA) */}
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-energy-accent)', marginBottom: '0.75rem', background: 'rgba(185,103,255,0.08)', display: 'inline-block', padding: '2px 8px' }}>
                 {a.type}
               </div>
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--color-text-secondary)' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--color-text-secondary)', marginTop: '0.5rem' }}>
                 {a.pain}
               </p>
             </div>

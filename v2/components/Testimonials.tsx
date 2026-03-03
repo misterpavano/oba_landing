@@ -17,7 +17,8 @@ export default function Testimonials() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
           {placeholders.map((t, i) => (
             <div key={i} className="wireframe-card" style={{ position: 'relative' }}>
-              <div style={{ fontFamily: 'serif', fontSize: '3rem', lineHeight: 1, color: 'var(--color-energy-primary)', marginBottom: '1rem' }}>&ldquo;</div>
+              {/* Quote marks → purple (decorative, not a CTA) */}
+              <div style={{ fontFamily: 'serif', fontSize: '3rem', lineHeight: 1, color: 'var(--color-energy-accent)', marginBottom: '1rem' }}>&ldquo;</div>
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', lineHeight: 1.7, color: 'var(--color-text-secondary)', marginBottom: '1.5rem' }}>{t.quote}</p>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-text-tertiary)' }}>{t.name}</div>
               <div style={{ position: 'absolute', top: '12px', right: '12px', fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--color-wireframe-subtle)', border: '1px solid var(--color-wireframe-subtle)', padding: '2px 6px' }}>PLACEHOLDER</div>
