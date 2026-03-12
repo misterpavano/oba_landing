@@ -1,27 +1,55 @@
+'use client';
+
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-[var(--color-wireframe)] bg-[var(--color-surface)]" style={{ paddingTop: 'calc(var(--grid-baseline) * 4)', paddingBottom: 'calc(var(--grid-baseline) * 4)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-[var(--color-text-secondary)] text-sm mb-4 md:mb-0 font-[var(--font-mono)]">
-            © 2025 One Block Away, LLC
-          </div>
-          <div className="flex space-x-6">
-            <a
-              href="https://www.linkedin.com/in/wallymo/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] transition-colors font-[var(--font-mono)] text-sm uppercase tracking-wider"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="mailto:wallymollc@gmail.com"
-              className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] transition-colors font-[var(--font-mono)] text-sm uppercase tracking-wider"
-            >
-              Email
-            </a>
-          </div>
+    <footer style={{
+      borderTop: '1px solid var(--color-border)',
+      background: 'var(--color-surface)',
+      padding: '28px 24px',
+    }}>
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: '16px',
+      }}>
+        <p style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>
+          © 2025 One Block Away, LLC — Apex, NC
+        </p>
+        <div style={{ display: 'flex', gap: '24px' }}>
+          <a
+            href="https://www.linkedin.com/in/wallymo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '12px',
+              fontWeight: 600,
+              color: 'var(--color-text-tertiary)',
+              textDecoration: 'none',
+              transition: 'color 0.15s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-text-primary)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-text-tertiary)')}
+          >
+            LinkedIn
+          </a>
+          <a
+            href="mailto:wallymollc@gmail.com"
+            style={{
+              fontSize: '12px',
+              fontWeight: 600,
+              color: 'var(--color-text-tertiary)',
+              textDecoration: 'none',
+              transition: 'color 0.15s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-text-primary)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-text-tertiary)')}
+          >
+            Email
+          </a>
         </div>
       </div>
     </footer>

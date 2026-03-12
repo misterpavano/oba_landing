@@ -1,60 +1,119 @@
-export default function Services() {
-  const services = [
-    {
-      title: 'UX/UI Design',
-      description: "Customers leaving your site confused? Let's create experiences that convert. I'll design interfaces that work for your business—and show you how to think about user experience so you can make smart decisions going forward.",
-      titleComponent: 'UX/UI Design',
-      id: 'SVC-001',
-    },
-    {
-      title: 'Business Strategy & Roadmaps',
-      description: "Ideas scattered across sticky notes and late-night thoughts? Let's get them organized into an executable roadmap. Through structured workshops, I'll help you clarify your vision, identify opportunities, and create a plan you actually understand and own.",
-      titleComponent: 'Business Strategy & Roadmaps',
-      id: 'SVC-002',
-    },
-    {
-      title: 'AI Implementation & Orchestration',
-      description: "Know AI could help your business but don't have time to figure it out? I'll implement the tools you need and teach you how to use them. From automating repetitive tasks to enhancing customer experiences—you'll own the systems and the knowledge to maintain them.",
-      titleComponent: 'AI Implementation & Orchestration',
-      id: 'SVC-003',
-    },
-    {
-      title: 'Discovery Workshops',
-      description: "Not sure where to start or what you actually need? Book a facilitated workshop session where we'll extract your ideas, identify your biggest opportunities, and create a clear action plan—whether that leads to design work, strategy development, AI implementation, or all three.",
-      titleComponent: 'Discovery Workshops',
-      id: 'SVC-004',
-    },
-  ];
+const services = [
+  {
+    tag: 'Start Here',
+    title: 'AI Readiness Audit',
+    description:
+      "Not sure where AI fits in your business? We'll spend 90 minutes mapping where you're losing time and money, then I'll walk you through the specific tools that address each gap. You'll leave with a prioritized action list.",
+    accent: true,
+  },
+  {
+    tag: 'Most Popular',
+    title: 'AI Tool Training',
+    description:
+      "Hands-on training for you and your team on the AI tools that actually matter for your work. We'll go through real examples from your business, not generic lectures.",
+    accent: false,
+  },
+  {
+    tag: 'High Impact',
+    title: 'Workflow Automation',
+    description:
+      "Customer follow-ups, scheduling, invoicing, content drafts. Most businesses waste hours on these. I'll identify which ones you can automate and set them up.",
+    accent: false,
+  },
+  {
+    tag: 'Ongoing',
+    title: 'AI Support Retainer',
+    description:
+      "Monthly check-ins to add new tools as they become useful, fix what's breaking, and keep you from falling behind as AI changes.",
+    accent: false,
+  },
+];
 
+export default function Services() {
   return (
-    <section id="how-i-can-help" className="py-24 px-4 sm:px-6 lg:px-8" style={{ paddingTop: 'calc(var(--grid-baseline) * 12)', paddingBottom: 'calc(var(--grid-baseline) * 12)' }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="wireframe-section-header justify-center mb-6 reveal">
+    <section id="how-i-can-help" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8" style={{ background: 'var(--color-base)' }}>
+      <div className="max-w-5xl mx-auto">
+
+        {/* Header */}
+        <div className="wireframe-section-header reveal">
           <span className="wireframe-section-label">01</span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
-            How I Can Help.
+          <h2 style={{
+            fontSize: 'clamp(1.6rem, 4vw, 2.8rem)',
+            fontWeight: 800,
+            letterSpacing: '-0.03em',
+            color: 'var(--color-text-primary)',
+          }}>
+            What I Do
           </h2>
         </div>
-        <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-light reveal" style={{ animationDelay: '0.2s' }}>
-          Start with what's urgent. Expand as you're ready. Whether you need better customer experiences, clearer direction, or modern tools that save time—we'll figure out which one your business needs first, then grow from there.
+
+        <p
+          className="reveal"
+          style={{
+            fontSize: '17px',
+            fontWeight: 400,
+            color: 'var(--color-text-secondary)',
+            maxWidth: '520px',
+            lineHeight: 1.65,
+            marginBottom: '40px',
+            animationDelay: '0.1s',
+          }}
+        >
+          Four ways to work together. Most people start with the audit,
+          then build from there based on what they actually need.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ gap: 'calc(var(--grid-baseline) * 4)' }}>
-          {services.map((service, index) => (
+
+        {/* Grid */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '16px',
+          }}
+        >
+          {services.map((svc, i) => (
             <div
-              key={index}
-              className="wireframe-card reveal"
-              data-id={service.id}
-              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+              key={i}
+              className="reveal"
+              style={{
+                background: svc.accent ? 'var(--color-accent)' : 'var(--color-surface)',
+                border: `1px solid ${svc.accent ? 'var(--color-accent)' : 'var(--color-border)'}`,
+                borderRadius: '4px',
+                padding: '28px',
+                animationDelay: `${0.1 + i * 0.08}s`,
+              }}
             >
-              <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4" style={{ letterSpacing: '-0.01em' }}>
-                {service.titleComponent}
+              <div style={{
+                fontSize: '10px',
+                fontWeight: 700,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: svc.accent ? 'rgba(255,255,255,0.65)' : 'var(--color-accent)',
+                marginBottom: '12px',
+              }}>
+                {svc.tag}
+              </div>
+              <h3 style={{
+                fontSize: '18px',
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+                color: svc.accent ? '#fff' : 'var(--color-text-primary)',
+                marginBottom: '10px',
+              }}>
+                {svc.title}
               </h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed font-light">
-                {service.description}
+              <p style={{
+                fontSize: '13px',
+                fontWeight: 400,
+                color: svc.accent ? 'rgba(255,255,255,0.8)' : 'var(--color-text-secondary)',
+                lineHeight: 1.65,
+              }}>
+                {svc.description}
               </p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

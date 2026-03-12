@@ -61,7 +61,7 @@ export default function Contact() {
     <section id="say-hi" className="py-24 px-4 sm:px-6 lg:px-8" style={{ paddingTop: 'calc(var(--grid-baseline) * 12)', paddingBottom: 'calc(var(--grid-baseline) * 12)' }}>
       <div className="max-w-2xl mx-auto">
         <div className="wireframe-section-header justify-center mb-6 reveal">
-          <span className="wireframe-section-label">07</span>
+          <span className="wireframe-section-label">05</span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
             Say Hi!
           </h2>
@@ -139,7 +139,7 @@ export default function Contact() {
             disabled={isSubmitting}
             className="wireframe-btn wireframe-btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isSubmitting ? 'Sending...' : 'Submit'}
+            {isSubmitting ? 'Sending...' : "Send Message"}
           </button>
         </form>
       </div>

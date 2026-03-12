@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBA Design Options — Pavano Squad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,900&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&family=Sora:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Sora', system-ui, sans-serif;
+      background: #111;
+      color: #eee;
+      min-height: 100vh;
+    }
+
+    /* ─── PAGE HEADER ─────────────────────────────────── */
+    .page-header {
+      padding: 40px 32px 32px;
+      border-bottom: 1px solid #2a2a2a;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .page-header h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #f0f0f0;
+      margin-bottom: 6px;
+    }
+
+    .page-header p {
+      font-size: 14px;
+      color: #888;
+      max-width: 560px;
+    }
+
+    .objective-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 6px 14px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #aaa;
+      letter-spacing: 0.05em;
+    }
+
+    .objective-badge strong {
+      color: #f0f0f0;
+    }
+
+    /* ─── GRID ────────────────────────────────────────── */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 1600px;
+      margin: 0 auto;
+      border-left: 1px solid #222;
+    }
+
+    @media (max-width: 1100px) {
+      .options-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .options-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── OPTION COLUMN ───────────────────────────────── */
+    .option-col {
+      border-right: 1px solid #222;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .option-label {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #222;
+      background: #161616;
+    }
+
+    .option-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    .option-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f0f0f0;
+      margin-bottom: 2px;
+    }
+
+    .option-vibe {
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* ─── PALETTE STRIP ───────────────────────────────── */
+    .palette {
+      display: flex;
+      height: 36px;
+    }
+
+    .swatch {
+      flex: 1;
+      position: relative;
+    }
+
+    .swatch:hover::after {
+      content: attr(data-color);
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      color: #888;
+      white-space: nowrap;
+      font-family: monospace;
+      z-index: 10;
+    }
+
+    /* ─── HERO PREVIEW ────────────────────────────────── */
+    .hero-preview {
+      flex: 1;
+      padding: 40px 28px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ─── SQUAD VOTES ─────────────────────────────────── */
+    .squad-votes {
+      padding: 20px 24px;
+      border-top: 1px solid #222;
+      background: #141414;
+    }
+
+    .squad-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .vote {
+      margin-bottom: 10px;
+    }
+
+    .vote-agent {
+      font-size: 11px;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 2px;
+    }
+
+    .vote-text {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .verdict {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+
+    .verdict-keep { background: #1a3a1a; color: #4caf50; }
+    .verdict-strong { background: #1a2a3a; color: #64b5f6; }
+    .verdict-contender { background: #2a2a1a; color: #ffd54f; }
+    .verdict-bold { background: #2a1a1a; color: #ef9a9a; }
+
+    /* ─── SERVICE CARD PREVIEW ────────────────────────── */
+    .card-preview {
+      padding: 20px 24px;
+      border-top: 1px solid #222;
+    }
+
+    .card-preview-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       OPTION A — WIREFRAME CATALYST (CURRENT)
+    ═══════════════════════════════════════════════════ */
+
+    .hero-a {
+      background: #0a0a0f;
+      min-height: 280px;
+    }
+
+    .hero-a .eyebrow {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #01CDFE;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-a .eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: #01CDFE;
+    }
+
+    .hero-a h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FF71CE 0%, #B967FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-a p {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .btn-a {
+      display: inline-block;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border: 1.5px solid #FF71CE;
+      color: #FF71CE;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-a {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,113,206,0.25);
+      padding: 20px;
+    }
+
+    .card-a h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #f5f5f5;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-a p {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    .card-a .tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #01CDFE;
+      border: 1px solid rgba(1,205,254,0.3);
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       OPTION B — WARM PRO (TRUST-FIRST)
+    ═══════════════════════════════════════════════════ */
+
+    .hero-b {
+      background: #FAFAF6;
+      min-height: 280px;
+    }
+
+    .hero-b .eyebrow {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #C2631A;
+      margin-bottom: 16px;
+    }
+
+    .hero-b h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: #1B2B4B;
+      margin-bottom: 14px;
+    }
+
+    .hero-b p {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #4a5568;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .btn-b {
+      display: inline-block;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 13px 28px;
+      background: #1B2B4B;
+      color: #FAFAF6;
+      cursor: pointer;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .card-b {
+      background: #fff;
+      border: 1px solid #e8e4dc;
+      border-radius: 4px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(27,43,75,0.06);
+    }
+
+    .card-b h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1B2B4B;
+      margin-bottom: 8px;
+    }
+
+    .card-b p {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #6b7280;
+      line-height: 1.65;
+    }
+
+    .card-b .tag {
+      display: inline-block;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #C2631A;
+      margin-bottom: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       OPTION C — SHARP CONSULTANT (MODERN PRO)
+    ═══════════════════════════════════════════════════ */
+
+    .hero-c {
+      background: #F8F8F5;
+      min-height: 280px;
+    }
+
+    .hero-c .eyebrow {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #0052E0;
+      margin-bottom: 18px;
+    }
+
+    .hero-c h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: #111111;
+      margin-bottom: 14px;
+    }
+
+    .hero-c h3 em {
+      font-style: normal;
+      color: #0052E0;
+    }
+
+    .hero-c p {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .btn-c {
+      display: inline-block;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      padding: 13px 28px;
+      background: #0052E0;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      border-radius: 2px;
+    }
+
+    .card-c {
+      background: #EEEEEA;
+      padding: 20px;
+      border-radius: 2px;
+    }
+
+    .card-c h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .card-c p {
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .card-c .tag {
+      display: inline-block;
+      font-family: 'Sora', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0052E0;
+      margin-bottom: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       OPTION D — EDITORIAL DARK (BOLD / PREMIUM)
+    ═══════════════════════════════════════════════════ */
+
+    .hero-d {
+      background: #1A1A13;
+      min-height: 280px;
+    }
+
+    .hero-d .eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #C9982A;
+      margin-bottom: 18px;
+    }
+
+    .hero-d h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #F2ECD8;
+      margin-bottom: 14px;
+    }
+
+    .hero-d h3 em {
+      font-style: italic;
+      color: #C9982A;
+    }
+
+    .hero-d p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(242,236,216,0.55);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .btn-d {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 12px 28px;
+      background: transparent;
+      color: #C9982A;
+      border: 1.5px solid #C9982A;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .card-d {
+      background: #232318;
+      border: 1px solid rgba(201,152,42,0.15);
+      padding: 20px;
+      border-radius: 2px;
+    }
+
+    .card-d h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #F2ECD8;
+      margin-bottom: 8px;
+    }
+
+    .card-d p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(242,236,216,0.45);
+      line-height: 1.65;
+    }
+
+    .card-d .tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #C9982A;
+      margin-bottom: 10px;
+    }
+
+    /* ─── FOOTER NOTE ─────────────────────────────────── */
+    .page-footer {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 32px;
+      border-top: 1px solid #1e1e1e;
+    }
+
+    .page-footer p {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .page-footer strong {
+      color: #666;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Pavano Squad — Design Debate</h1>
+    <h2>OBA Landing Page: Design System Options</h2>
+    <p>Four directions for the One Block Away rebrand. Each shows typography, color, hero, card, and button. Squad verdicts below each.</p>
+    <div class="objective-badge">
+      <strong>Objective:</strong> Teaching small businesses AI to compete with big businesses
+    </div>
+  </div>
+
+  <!-- OPTIONS GRID -->
+  <div class="options-grid">
+
+    <!-- ── OPTION A: WIREFRAME CATALYST (CURRENT) ──────── -->
+    <div class="option-col">
+
+      <div class="option-label">
+        <div class="option-number">Option A — Current</div>
+        <div class="option-name">Wireframe Catalyst</div>
+        <div class="option-vibe">"Vaporwave agency. Looks like you build rockets."</div>
+      </div>
+
+      <!-- Palette -->
+      <div class="palette">
+        <div class="swatch" style="background:#0a0a0f;" data-color="#0a0a0f"></div>
+        <div class="swatch" style="background:#FF71CE;" data-color="#FF71CE"></div>
+        <div class="swatch" style="background:#01CDFE;" data-color="#01CDFE"></div>
+        <div class="swatch" style="background:#B967FF;" data-color="#B967FF"></div>
+        <div class="swatch" style="background:#1a1a2e;" data-color="#1a1a2e"></div>
+      </div>
+
+      <!-- Hero -->
+      <div class="hero-preview hero-a">
+        <div class="eyebrow">AI Implementation &amp; Consulting</div>
+        <h3>Your competitors are using AI. Let's catch up.</h3>
+        <p>One Block Away teaches Apex small businesses how to use AI to save time, cut costs, and compete with anyone.</p>
+        <button class="btn-a">Book a Free AI Audit</button>
+      </div>
+
+      <!-- Card preview -->
+      <div class="card-preview" style="background:#0a0a0f; border-top: 1px solid #1e1e2e;">
+        <div class="card-preview-label" style="color:#333;">Service Card</div>
+        <div class="card-a">
+          <div class="tag">AI Training</div>
+          <h4>AI Workflow Training</h4>
+          <p>I'll show you exactly which tools fit your business and how to use them — in a single day.</p>
+        </div>
+      </div>
+
+      <!-- Squad Votes -->
+      <div class="squad-votes">
+        <div class="squad-label">Squad Verdict</div>
+        <span class="verdict verdict-keep">Keep If: Already have tech-forward clients</span>
+        <div class="vote">
+          <div class="vote-agent">UX Researcher</div>
+          <div class="vote-text">ICP mismatch. Dentists and realtors land here and assume it's not for them. Neon on dark reads "developer tool" not "business partner."</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">UI Designer</div>
+          <div class="vote-text">The craft is there. But it optimizes for cool over trust. Trust converts in this market.</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">Growth Hacker</div>
+          <div class="vote-text">Cool-to-convert ratio is low. Bounce rate will be high from the core SMB audience. Keep for a tech-focused vertical play, not a broad SMB play.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── OPTION B: WARM PRO ───────────────────────────── -->
+    <div class="option-col">
+
+      <div class="option-label">
+        <div class="option-number">Option B</div>
+        <div class="option-name">Warm Pro</div>
+        <div class="option-vibe">"I trust this person with my business."</div>
+      </div>
+
+      <!-- Palette -->
+      <div class="palette">
+        <div class="swatch" style="background:#FAFAF6;" data-color="#FAFAF6"></div>
+        <div class="swatch" style="background:#1B2B4B;" data-color="#1B2B4B"></div>
+        <div class="swatch" style="background:#C2631A;" data-color="#C2631A"></div>
+        <div class="swatch" style="background:#E8E3D9;" data-color="#E8E3D9"></div>
+        <div class="swatch" style="background:#4a5568;" data-color="#4a5568"></div>
+      </div>
+
+      <!-- Hero -->
+      <div class="hero-preview hero-b">
+        <div class="eyebrow">One Block Away</div>
+        <h3>Your competitors are using AI. Let's catch up.</h3>
+        <p>I teach Apex small businesses how to use AI tools to save time, reduce costs, and compete with anyone — without the tech headache.</p>
+        <button class="btn-b">Book a Free AI Audit</button>
+      </div>
+
+      <!-- Card preview -->
+      <div class="card-preview" style="background:#F0EDE6; border-top: 1px solid #ddd8cf;">
+        <div class="card-preview-label">Service Card</div>
+        <div class="card-b">
+          <div class="tag">AI Training</div>
+          <h4>AI Workflow Training</h4>
+          <p>I'll show you exactly which tools fit your business and how to use them — in a single day.</p>
+        </div>
+      </div>
+
+      <!-- Squad Votes -->
+      <div class="squad-votes">
+        <div class="squad-label">Squad Verdict</div>
+        <span class="verdict verdict-strong">Strong Contender — Highest Trust</span>
+        <div class="vote">
+          <div class="vote-agent">UX Researcher</div>
+          <div class="vote-text">This is what a dentist, realtor, or restaurant owner sees and thinks "this is for me." Serif + warmth = credibility. Converts on first impression.</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">Growth Hacker</div>
+          <div class="vote-text">Lower friction = higher CTR on the CTA. This is built to convert cold traffic. Safest bet for the broad Apex SMB ICP.</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">UI Designer</div>
+          <div class="vote-text">Clean and solid but risks blending in. Every accountant and local consultant has a site that looks adjacent to this. Not bad, not memorable.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── OPTION C: SHARP CONSULTANT ──────────────────── -->
+    <div class="option-col">
+
+      <div class="option-label">
+        <div class="option-number">Option C</div>
+        <div class="option-name">Sharp Consultant</div>
+        <div class="option-vibe">"Serious. Confident. No fluff."</div>
+      </div>
+
+      <!-- Palette -->
+      <div class="palette">
+        <div class="swatch" style="background:#F8F8F5;" data-color="#F8F8F5"></div>
+        <div class="swatch" style="background:#111111;" data-color="#111111"></div>
+        <div class="swatch" style="background:#0052E0;" data-color="#0052E0"></div>
+        <div class="swatch" style="background:#EEEEEA;" data-color="#EEEEEA"></div>
+        <div class="swatch" style="background:#666666;" data-color="#666666"></div>
+      </div>
+
+      <!-- Hero -->
+      <div class="hero-preview hero-c">
+        <div class="eyebrow">One Block Away</div>
+        <h3>Your competitors are using <em>AI</em>. Here's how you catch up.</h3>
+        <p>I teach Apex small businesses how to use AI tools to save time, cut costs, and compete — without needing a tech team to do it.</p>
+        <button class="btn-c">Book a Free AI Audit</button>
+      </div>
+
+      <!-- Card preview -->
+      <div class="card-preview" style="background:#F0F0EC; border-top: 1px solid #ddd;">
+        <div class="card-preview-label">Service Card</div>
+        <div class="card-c">
+          <div class="tag">AI Training</div>
+          <h4>AI Workflow Training</h4>
+          <p>I'll show you exactly which tools fit your business and how to use them — in a single day.</p>
+        </div>
+      </div>
+
+      <!-- Squad Votes -->
+      <div class="squad-votes">
+        <div class="squad-label">Squad Verdict</div>
+        <span class="verdict verdict-strong">Strong — Best B+B Balance</span>
+        <div class="vote">
+          <div class="vote-agent">UX Researcher</div>
+          <div class="vote-text">Works for both the dentist and the slightly-more-savvy business owner. High readability, clear hierarchy, Sora is clean without being cold.</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">Trend Researcher</div>
+          <div class="vote-text">This is where the market is going. The boutique-consultant-meets-modern-product look. Feels current without aging like the current vaporwave will in 18 months.</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">UI Designer</div>
+          <div class="vote-text">Typography does the heavy lifting. Clean. Blue accent gives it authority without coldness. Easy to build on. My pick alongside D.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── OPTION D: EDITORIAL DARK ─────────────────────── -->
+    <div class="option-col">
+
+      <div class="option-label">
+        <div class="option-number">Option D</div>
+        <div class="option-name">Editorial Dark</div>
+        <div class="option-vibe">"Premium. Authoritative. Remembered."</div>
+      </div>
+
+      <!-- Palette -->
+      <div class="palette">
+        <div class="swatch" style="background:#1A1A13;" data-color="#1A1A13"></div>
+        <div class="swatch" style="background:#F2ECD8;" data-color="#F2ECD8"></div>
+        <div class="swatch" style="background:#C9982A;" data-color="#C9982A"></div>
+        <div class="swatch" style="background:#232318;" data-color="#232318"></div>
+        <div class="swatch" style="background:#2e2e23;" data-color="#2e2e23"></div>
+      </div>
+
+      <!-- Hero -->
+      <div class="hero-preview hero-d">
+        <div class="eyebrow">One Block Away</div>
+        <h3>Your competitors are using AI. <em>You're about to.</em></h3>
+        <p>I teach Apex small businesses how to use AI tools to save time, reduce costs, and compete with anyone — without needing a tech team.</p>
+        <button class="btn-d">Book a Free AI Audit</button>
+      </div>
+
+      <!-- Card preview -->
+      <div class="card-preview" style="background:#1A1A13; border-top: 1px solid #2a2a1e;">
+        <div class="card-preview-label" style="color:#333;">Service Card</div>
+        <div class="card-d">
+          <div class="tag">AI Training</div>
+          <h4>AI Workflow Training</h4>
+          <p>I'll show you exactly which tools fit your business and how to use them — in a single day.</p>
+        </div>
+      </div>
+
+      <!-- Squad Votes -->
+      <div class="squad-votes">
+        <div class="squad-label">Squad Verdict</div>
+        <span class="verdict verdict-bold">Bold Pick — High Risk, High Reward</span>
+        <div class="vote">
+          <div class="vote-agent">UI Designer</div>
+          <div class="vote-text">Fraunces is exceptional. The warm dark + brass combo avoids every AI cliché. Nobody in this local consultant space looks like this. Could own the positioning.</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">Trend Researcher</div>
+          <div class="vote-text">Luxury-meets-utility is a rising pattern. Think premium local brands. High differentiation from the "local consultant with a blue site" baseline.</div>
+        </div>
+        <div class="vote">
+          <div class="vote-agent">UX Researcher</div>
+          <div class="vote-text">Concern: warm dark is premium but may still read "tech/app" to a dentist who lands on it cold. Needs copy to bridge the warmth gap immediately. High upside if the copy lands.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER / RECOMMENDATION -->
+  <div class="page-footer">
+    <p>
+      <strong>Squad consensus:</strong> Option A fails the ICP test — beautiful but wrong audience. 
+      Option B converts best from cold SMB traffic, lowest risk. 
+      Option C has the best longevity — won't age, works across the widest range of business owners, clean to build on. 
+      Option D is the memorable bet — highest differentiation, highest upside if copy lands, slightly higher bounce risk from cold traffic.<br><br>
+      <strong>If the goal is conversion:</strong> B or C. 
+      <strong>If the goal is standing out and being remembered:</strong> D. 
+      <strong>Hybrid play:</strong> C's layout and type system with D's dark color direction.
+    </p>
+  </div>
+
+</body>
+</html>

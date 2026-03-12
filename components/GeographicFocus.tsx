@@ -1,44 +1,82 @@
 export default function GeographicFocus() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ paddingTop: 'calc(var(--grid-baseline) * 12)', paddingBottom: 'calc(var(--grid-baseline) * 12)' }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 reveal">
-          <div className="wireframe-section-header justify-center mb-6">
-            <span className="wireframe-section-label">03</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
-              Rooted in Downtown Apex & RTP
-            </h2>
-          </div>
-        </div>
-        <div className="max-w-4xl mx-auto reveal" style={{ animationDelay: '0.2s' }}>
-          <div className="wireframe-card" data-id="GEO-001">
-            <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed font-light">
-              <strong className="text-[var(--color-text-primary)] font-semibold">Big agency results without big agency prices—because I'm your neighbor, not a vendor.</strong> I live and work in downtown Apex. I understand the unique challenges small businesses face in our community, from competing with RTP tech giants for talent to standing out in a growing market.
-            </p>
-            <div className="space-y-6" style={{ marginTop: 'calc(var(--grid-baseline) * 3)', paddingTop: 'calc(var(--grid-baseline) * 3)', borderTop: '1px solid var(--color-wireframe-subtle)' }}>
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-3" style={{ letterSpacing: '-0.01em' }}>
-                  Here's what local means for you:
-                </h3>
-              </div>
-              <ul className="space-y-4">
-                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
-                  <span className="font-semibold text-[var(--color-energy-primary)]">Flexible, face-to-face collaboration</span> when it matters (coffee in downtown Apex, not just Zoom calls)
-                </li>
-                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
-                  <span className="font-semibold text-[var(--color-energy-primary)]">Deep market understanding</span> (I know your customers, your competitors, and your challenges)
-                </li>
-                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
-                  <span className="font-semibold text-[var(--color-energy-primary)]">No agency overhead</span> (no hourly minimums or rigid contracts designed for enterprise budgets)
-                </li>
-                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
-                  <span className="font-semibold text-[var(--color-energy-primary)]">Invested in your success</span> because your growth strengthens our community
-                </li>
-              </ul>
-              <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed font-light" style={{ marginTop: 'calc(var(--grid-baseline) * 3)' }}>
-                Whether you're in Peak City or the RTP corridor, One Block Away exists to help small businesses modernize, compete, and grow—without breaking the bank.
-              </p>
+    <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ background: 'var(--color-base)' }}>
+      <div className="max-w-5xl mx-auto">
+        <div
+          className="reveal"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            border: '1px solid var(--color-border)',
+            borderRadius: '4px',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Left */}
+          <div style={{
+            padding: '36px 40px',
+            background: 'var(--color-surface)',
+            borderRight: '1px solid var(--color-border)',
+          }}>
+            <div style={{
+              fontSize: '11px',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--color-accent)',
+              marginBottom: '12px',
+            }}>
+              Local
             </div>
+            <h3 style={{
+              fontSize: '22px',
+              fontWeight: 700,
+              letterSpacing: '-0.03em',
+              color: 'var(--color-text-primary)',
+              lineHeight: 1.2,
+              marginBottom: '12px',
+            }}>
+              Based in downtown Apex.
+              <br />
+              Serving the RTP corridor.
+            </h3>
+            <p style={{
+              fontSize: '13px',
+              color: 'var(--color-text-secondary)',
+              lineHeight: 1.65,
+            }}>
+              You get big agency results without the markup, because I'm local.
+            </p>
+          </div>
+
+          {/* Right */}
+          <div style={{ padding: '36px 40px', background: 'var(--color-base)' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {[
+                'Coffee meetings in Apex, not just Zoom calls',
+                'I know the RTP market and your customers',
+                'No agency overhead or hourly minimums',
+                'Your growth helps our community grow',
+              ].map((item, i) => (
+                <li key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                  <span style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: 'var(--color-accent)',
+                    flexShrink: 0,
+                    marginTop: '6px',
+                  }} />
+                  <span style={{
+                    fontSize: '13px',
+                    color: 'var(--color-text-secondary)',
+                    lineHeight: 1.55,
+                  }}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

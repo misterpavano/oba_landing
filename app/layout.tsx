@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700", "800"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "One Block Away - AI Implementation & Orchestration Specialist",
-  description: "Empowering downtown Apex and RTP region businesses by bringing ideas to life through AI solutions, strategic roadmaps, and transformative digital experiences.",
+  title: "One Block Away — AI Training for Small Businesses",
+  description: "I teach Apex and RTP small businesses how to use AI to save time, cut costs, and compete with anyone. Free intro call — no pitch, no pressure.",
 };
 
 export default function RootLayout({
@@ -15,15 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased relative">
-        {/* Grid Annotations */}
-        <div className="grid-annotation" style={{ top: '16px', left: '24px' }}>ISOMETRIC: 30°</div>
-        <div className="grid-annotation" style={{ top: '16px', right: '24px' }}>WIREFRAME CATALYST</div>
-
+    <html lang="en" className={sora.variable}>
+      <body className="antialiased">
         <ScrollReveal />
         <Navigation />
-        <main className="relative z-10">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

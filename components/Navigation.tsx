@@ -5,89 +5,126 @@ import { useState } from 'react';
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
-
   return (
-    <nav className="fixed top-0 w-full bg-[var(--color-surface)]/90 backdrop-blur-md border-b-2 border-[var(--color-wireframe)] z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center">
-              <img
-                src="/Group-38.png"
-                alt="One Block Away"
-                className="h-12 w-auto"
-              />
-            </a>
-          </div>
+    <nav style={{
+      position: 'fixed',
+      top: 0,
+      width: '100%',
+      background: 'rgba(248,248,245,0.92)',
+      backdropFilter: 'blur(12px)',
+      borderBottom: '1px solid var(--color-border)',
+      zIndex: 50,
+    }}>
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 24px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: '60px',
+      }}>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] px-3 py-2 text-xs font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-                Home
-              </a>
-              <a href="#how-i-can-help" className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] px-3 py-2 text-xs font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-                How I Can Help
-              </a>
-              <a href="#how-well-succeed" className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] px-3 py-2 text-xs font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-                How We'll Succeed
-              </a>
-              <a href="#book-consult" className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] px-3 py-2 text-xs font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-                Book Consult
-              </a>
-              <a href="#about" className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] px-3 py-2 text-xs font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-                About
-              </a>
-              <a href="#say-hi" className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] px-3 py-2 text-xs font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-                Say Hi!
-              </a>
-            </div>
-          </div>
+        {/* Logo */}
+        <a href="#home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img src="/Group-38.png" alt="One Block Away" style={{ height: '40px', width: 'auto' }} />
+        </a>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] focus:outline-none transition-colors border-2 border-transparent hover:border-[var(--color-wireframe)]"
+        {/* Desktop links */}
+        <div className="hidden md:flex" style={{ gap: '4px', alignItems: 'center' }}>
+          {[
+            { label: 'What I Do', href: '#how-i-can-help' },
+            { label: 'How I Work', href: '#how-well-succeed' },
+            { label: 'About', href: '#about' },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              style={{
+                padding: '8px 14px',
+                fontSize: '13px',
+                fontWeight: 600,
+                color: 'var(--color-text-secondary)',
+                textDecoration: 'none',
+                borderRadius: '3px',
+                transition: 'color 0.15s',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-text-primary)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-text-secondary)')}
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#book-consult"
+            className="btn btn-primary"
+            style={{ marginLeft: '8px', padding: '9px 20px', fontSize: '13px' }}
+          >
+            Free AI Audit
+          </a>
         </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '8px',
+            color: 'var(--color-text-primary)',
+          }}
+          aria-label="Toggle menu"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            {isOpen ? (
+              <>
+                <line x1="4" y1="4" x2="16" y2="16" />
+                <line x1="16" y1="4" x2="4" y2="16" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="17" y2="6" />
+                <line x1="3" y1="10" x2="17" y2="10" />
+                <line x1="3" y1="14" x2="17" y2="14" />
+              </>
+            )}
+          </svg>
+        </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[var(--color-surface)] border-t-2 border-[var(--color-wireframe)]">
-            <a href="#home" onClick={handleLinkClick} className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] block px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-              Home
+        <div style={{
+          background: 'var(--color-surface)',
+          borderTop: '1px solid var(--color-border)',
+          padding: '12px 24px 20px',
+        }}>
+          {[
+            { label: 'What I Do', href: '#how-i-can-help' },
+            { label: 'How I Work', href: '#how-well-succeed' },
+            { label: 'About', href: '#about' },
+            { label: 'Book Free Call', href: '#book-consult' },
+            { label: 'Say Hi', href: '#say-hi' },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              style={{
+                display: 'block',
+                padding: '11px 0',
+                fontSize: '14px',
+                fontWeight: 600,
+                color: 'var(--color-text-primary)',
+                textDecoration: 'none',
+                borderBottom: '1px solid var(--color-border)',
+              }}
+            >
+              {link.label}
             </a>
-            <a href="#how-i-can-help" onClick={handleLinkClick} className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] block px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-              How I Can Help
-            </a>
-            <a href="#how-well-succeed" onClick={handleLinkClick} className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] block px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-              How We'll Succeed
-            </a>
-            <a href="#book-consult" onClick={handleLinkClick} className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] block px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-              Book Consult
-            </a>
-            <a href="#about" onClick={handleLinkClick} className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] block px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-              About
-            </a>
-            <a href="#say-hi" onClick={handleLinkClick} className="text-[var(--color-text-secondary)] hover:text-[var(--color-energy-secondary)] block px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors font-[var(--font-mono)]">
-              Say Hi!
-            </a>
-          </div>
+          ))}
         </div>
       )}
     </nav>

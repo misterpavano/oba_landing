@@ -9,7 +9,7 @@ export default function ScrollReveal() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.setAttribute('style', 'opacity: 1; transform: translateY(0);');
+            entry.target.classList.add('revealed');
           }
         });
       },
@@ -25,4 +25,3 @@ export default function ScrollReveal() {
 
   return null;
 }
-
