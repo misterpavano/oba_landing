@@ -1,7 +1,50 @@
 export default function Hero() {
   return (
-    <section id="home" className="relative pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <section id="home" className="relative pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8" style={{ overflow: 'hidden' }}>
+      {/* Background gradient glow */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: '-20%',
+          left: '-10%',
+          width: '60%',
+          height: '80%',
+          background: 'radial-gradient(ellipse at center, rgba(0, 82, 224, 0.06) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      {/* Geometric accent arc */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: '10%',
+          right: '-8%',
+          width: '400px',
+          height: '400px',
+          borderRadius: '50%',
+          border: '1px solid rgba(0, 82, 224, 0.08)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: '15%',
+          right: '-5%',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          border: '1px solid rgba(0, 82, 224, 0.05)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div className="max-w-5xl mx-auto" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Eyebrow */}
         <div className="reveal mb-6">
@@ -78,7 +121,7 @@ export default function Hero() {
           style={{
             marginTop: '56px',
             paddingTop: '28px',
-            borderTop: '1px solid var(--color-border)',
+            borderTop: 'none',
             display: 'flex',
             flexWrap: 'wrap',
             gap: '32px',
@@ -90,19 +133,20 @@ export default function Hero() {
             { stat: 'Local to Apex', label: 'not a remote vendor' },
             { stat: 'You own it', label: 'no contracts, no lock-in' },
           ].map((item, i) => (
-            <div key={i}>
+            <div key={i} className="hero-stat">
               <div style={{
-                fontSize: '15px',
-                fontWeight: 700,
+                fontSize: '20px',
+                fontWeight: 800,
                 color: 'var(--color-text-primary)',
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.03em',
+                lineHeight: 1.1,
               }}>
                 {item.stat}
               </div>
               <div style={{
                 fontSize: '12px',
                 color: 'var(--color-text-tertiary)',
-                marginTop: '2px',
+                marginTop: '4px',
               }}>
                 {item.label}
               </div>

@@ -62,21 +62,26 @@ export default function About() {
 
           {/* Text */}
           <div className="reveal" style={{ animationDelay: '0.15s' }}>
+            {/* Pull quote */}
+            <blockquote style={{
+              fontSize: '20px',
+              fontWeight: 700,
+              color: 'var(--color-text-primary)',
+              lineHeight: 1.4,
+              marginBottom: '28px',
+              paddingLeft: '20px',
+              borderLeft: '3px solid var(--color-accent)',
+              letterSpacing: '-0.02em',
+            }}>
+              Agencies create dependency, not empowerment.
+            </blockquote>
             <p style={{
               fontSize: '15px',
               color: 'var(--color-text-secondary)',
               lineHeight: 1.7,
               marginBottom: '20px',
             }}>
-              My path to One Block Away started with a simple frustration: agencies create dependency, not empowerment.
-            </p>
-            <p style={{
-              fontSize: '15px',
-              color: 'var(--color-text-secondary)',
-              lineHeight: 1.7,
-              marginBottom: '20px',
-            }}>
-              I spent 14 years in customer experience — from NYC advertising to UX research and design — learning how to bridge business goals and real customer needs. But I also saw how agencies gatekeep knowledge, run up retainers, and leave clients dependent on "experts" who won't explain their own work.
+              I spent 14 years in customer experience, from NYC advertising to UX research and design, learning how to bridge business goals and real customer needs. But I also saw how agencies gatekeep knowledge, run up retainers, and leave clients dependent on "experts" who won't explain their own work.
             </p>
             <p style={{
               fontSize: '15px',

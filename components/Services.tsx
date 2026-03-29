@@ -74,7 +74,7 @@ export default function Services() {
           {services.map((svc, i) => (
             <div
               key={i}
-              className="reveal"
+              className={`reveal ${svc.accent ? 'service-card-accent' : 'service-card'}`}
               style={{
                 background: svc.accent ? 'var(--color-accent)' : 'var(--color-surface)',
                 border: `1px solid ${svc.accent ? 'var(--color-accent)' : 'var(--color-border)'}`,
