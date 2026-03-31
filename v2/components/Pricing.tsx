@@ -17,12 +17,12 @@ export default function Pricing() {
         <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', color: 'var(--color-text-tertiary)', marginBottom: '3.5rem', maxWidth: '480px' }}>
           No retainers you didn&apos;t ask for. Start wherever makes sense.
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', paddingTop: '1.5rem' }}>
           {tiers.map((tier) => (
-            <div key={tier.name} className="wireframe-card" style={{ background: tier.highlight ? 'var(--color-wireframe)' : 'var(--color-base)', color: tier.highlight ? 'var(--color-base)' : 'var(--color-text-primary)', display: 'flex', flexDirection: 'column' }}>
+            <div key={tier.name} className="wireframe-card" style={{ position: 'relative', background: tier.highlight ? 'var(--color-wireframe)' : 'var(--color-base)', color: tier.highlight ? 'var(--color-base)' : 'var(--color-text-primary)', display: 'flex', flexDirection: 'column' }}>
               {tier.highlight && (
-                /* Badge → purple so it doesn't double up with the pink CTA button below */
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-energy-accent)', marginBottom: '1rem' }}>
+                /* Badge positioned above the card so it never gets clipped */
+                <div style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-base)', background: 'var(--color-energy-accent)', padding: '4px 16px', borderRadius: '999px', whiteSpace: 'nowrap' }}>
                   ★ Most Popular
                 </div>
               )}

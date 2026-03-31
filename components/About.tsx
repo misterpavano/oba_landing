@@ -37,7 +37,7 @@ export default function About() {
           >
             <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5' }}>
               <Image
-                src="/wally-headshot.jpg"
+                src="wally-headshot.jpg"
                 alt="Wally — Founder of One Block Away"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center' }}

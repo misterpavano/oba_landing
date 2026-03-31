@@ -27,7 +27,7 @@ export default function Navigation() {
 
         {/* Logo */}
         <a href="#home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src="/Group-38.png" alt="One Block Away" style={{ height: '40px', width: 'auto' }} />
+          <img src="Group-38.png" alt="One Block Away" style={{ height: '40px', width: 'auto' }} />
         </a>
 
         {/* Desktop links */}
